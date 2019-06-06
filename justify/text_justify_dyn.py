@@ -38,7 +38,7 @@ class TextJustifyDyn:
 
     def print_txt(self, ptrs):
         i = 0
-        while i < (len(ptrs) - 1):
+        while i < len(ptrs):
             line = self.txt[i:ptrs[i]]
             print(" ".join(line))
             i = ptrs[i]
