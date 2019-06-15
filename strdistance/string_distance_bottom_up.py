@@ -16,6 +16,7 @@ class StringDistanceBottomUp:
                     cost_insert = self.dist[a][b - 1] + 1
                     cost_replace = self.dist[a - 1][b - 1] + replace_cost
                     self.dist[a][b] = min(cost_delete, cost_insert, cost_replace)
+            print(self.dist[a])
 
     def distance(self):
             return self.dist[len(self.str_A)][len(self.str_B)]
