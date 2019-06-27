@@ -21,9 +21,9 @@ class StringDistanceTopDown:
         cost_delete = self.distance_r(a - 1, b) + 1
         cost_insert = self.distance_r(a, b - 1) + 1
         cost_replace = self.distance_r(a - 1, b - 1) + replace_cost
-        minCost = min(cost_delete, cost_insert, cost_replace)
-        self.dist[a][b] = minCost
-        return minCost
+        min_cost = min(cost_delete, cost_insert, cost_replace)
+        self.dist[a][b] = min_cost
+        return min_cost
 
 
 #dist = StringDistanceTopDown("TodayIsSaturday", "TomorrowIsSunday")

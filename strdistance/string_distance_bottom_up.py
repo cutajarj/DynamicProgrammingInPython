@@ -19,7 +19,7 @@ class StringDistanceBottomUp:
             print(self.dist[a])
 
     def distance(self):
-            return self.dist[len(self.str_A)][len(self.str_B)]
+        return self.dist[len(self.str_A)][len(self.str_B)]
 
 
 #dist = StringDistanceBottomUp("TodayIsSaturday", "TomorrowIsSunday")
