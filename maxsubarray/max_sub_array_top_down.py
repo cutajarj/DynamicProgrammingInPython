@@ -1,7 +1,7 @@
 class MaxSubArrayTopDown:
     def __init__(self, prices):
         self.prices = prices
-        self.sub_solutions = [-1] * len(prices)
+        self.sub_solutions = [None] * len(prices)
 
     def max_sub_array(self):
         max_value = 0
@@ -10,7 +10,7 @@ class MaxSubArrayTopDown:
         return max_value
 
     def max_sub_array_ending_at(self, i):
-        if self.sub_solutions[i] != -1:
+        if self.sub_solutions[i] is not None:
             return self.sub_solutions[i]
         if i == 0:
             return self.prices[0]

@@ -1,7 +1,7 @@
 class MaxSubArrayBottomUp:
     def __init__(self, prices):
         self.prices = prices
-        self.sub_solutions = [-1] * len(prices)
+        self.sub_solutions = [None] * len(prices)
         for i in range(len(self.prices)):
             if i == 0:
                 self.sub_solutions[i] = self.prices[0]
