@@ -1,6 +1,7 @@
-class MaxSubArrayRec:
+class MaxSubArrayTopDown:
     def __init__(self, prices):
         self.prices = prices
+        self.sub_solutions = [-1] * len(prices)
 
     def max_sub_array(self):
         max_value = 0
@@ -9,16 +10,20 @@ class MaxSubArrayRec:
         return max_value
 
     def max_sub_array_ending_at(self, i):
+        if self.sub_solutions[i] != -1:
+            return self.sub_solutions[i]
         if i == 0:
             return self.prices[0]
-        return max(self.prices[i], self.max_sub_array_ending_at(i - 1) + self.prices[i])
+        m = max(self.prices[i], self.max_sub_array_ending_at(i - 1) + self.prices[i])
+        self.sub_solutions[i] = m
+        return m
 
 
-msa = MaxSubArrayRec([5, -4, 8, -10, -2, 4, -3, 2, 7, -8, 3, -5, 3])
+msa = MaxSubArrayTopDown([5, -4, 8, -10, -2, 4, -3, 2, 7, -8, 3, -5, 3])
 print(msa.max_sub_array())
 
 # input = [1] * 900
 # for i in range(10):
-#     msa = MaxSubArrayRec(input)
+#     msa = MaxSubArrayTopDown(input)
 #     print(msa.max_sub_array())
 
