@@ -6,16 +6,17 @@ class CountDerangementsTopDown:
     def count_derangements(self):
         return self.count_derangements_rec(self.set_size)
 
-    def count_derangements_rec(self, i):
-        if self.sub_solutions[i] != -1:
-            return self.sub_solutions[i]
-        if i == 1:
+    def count_derangements_rec(self, n):
+        if self.sub_solutions[n] != -1:
+            return self.sub_solutions[n]
+        if n == 1:
             return 0
-        if i == 2:
+        if n == 2:
             return 1
-        n = (i - 1) * (self.count_derangements_rec(i - 1) + self.count_derangements_rec(i - 2))
-        self.sub_solutions[i] = n
-        return n
+        result = (n - 1) * (self.count_derangements_rec(n - 1) + self.count_derangements_rec(n - 2))
+        self.sub_solutions[n] = result
+        return result
+
 
 # for i in range(1,64):
 for i in range(1,11):
