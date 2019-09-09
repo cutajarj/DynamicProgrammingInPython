@@ -16,7 +16,8 @@ class FullBusTour:
             return False
         if self.sub_solutions[length][c] is not None:
             return self.sub_solutions[length][c]
+        c_remaining = c - self.group_sizes[length - 1]
         result = self.fits_exactly_rec(length - 1, c) or (
-                c - self.group_sizes[length - 1] >= 0 and self.fits_exactly_rec(length - 1, c - self.group_sizes[length - 1]))
+                c_remaining >= 0 and self.fits_exactly_rec(length - 1, c_remaining))
         self.sub_solutions[length][c] = result
         return result

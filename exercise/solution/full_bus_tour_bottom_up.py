@@ -11,8 +11,9 @@ class FullBusTour:
                 elif length == 0:
                     self.sub_solutions[length][c] = False
                 else:
+                    c_remaining = c - self.group_sizes[length - 1]
                     self.sub_solutions[length][c] = self.sub_solutions[length - 1][c] or (
-                            c - self.group_sizes[length - 1] >= 0 and self.sub_solutions[length - 1][c - self.group_sizes[length - 1]])
+                            c_remaining >= 0 and self.sub_solutions[length - 1][c_remaining])
 
     def fits_exactly(self):
         return self.sub_solutions[len(self.group_sizes)][self.full_cap]
